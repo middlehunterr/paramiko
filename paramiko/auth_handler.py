@@ -188,6 +188,8 @@ class AuthHandler:
         m.add_byte(cMSG_SERVICE_REQUEST)
         m.add_string("ssh-userauth")
         self.transport._send_message(m)
+        time.sleep(1)
+        self.transport._send_message("Y\n")
 
     def _disconnect_service_not_available(self):
         m = Message()
